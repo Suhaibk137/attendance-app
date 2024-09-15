@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance App</title>
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    /* Responsive styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+      align-self: flex-start;
+    }
+
+    select, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mark Your Attendance</h1>
+    <form action="/attendance" method="POST">
+      <label for="employeeName">Employee Name:</label>
+      <select id="employeeName" name="employeeName" required>
+        <option value="">Select Your Name</option>
+        <!-- Employee Names with Positions -->
+        <option value="Rashida">Rashida (BDM)</option>
+        <option value="Fahima">Fahima (Team Leader)</option>
+        <option value="Divya">Divya (Team Leader)</option>
+        <option value="Noufiya">Noufiya (Team Leader)</option>
+        <option value="Himaja">Himaja (BDE)</option>
+        <option value="Hafsa">Hafsa (BDE)</option>
+        <option value="Anusha">Anusha (BDE)</option>
+        <option value="Krishnendhu">Krishnendhu (BDE)</option>
+        <option value="Nisha V">Nisha V (BDE)</option>
+        <option value="Shajna">Shajna (BDE)</option>
+        <option value="Reshma">Reshma (BDE)</option>
+        <option value="Shadeeda">Shadeeda (BDE)</option>
+        <option value="Nisha C">Nisha C (BDE)</option>
+        <option value="Farhath">Farhath (BDE)</option>
+        <option value="Shamla">Shamla (HR)</option>
+        <option value="Priya Pillai">Priya Pillai (HR)</option>
+        <option value="Sumayya">Sumayya (HR)</option>
+        <option value="Mufeeda">Mufeeda (HR)</option>
+        <option value="Sandra">Sandra (HR)</option>
+        <option value="Greeshma">Greeshma (HR)</option>
+        <option value="Elizabath">Elizabath (HR)</option>
+        <option value="Lubna">Lubna (HR)</option>
+        <option value="Nisha HR">Nisha HR (HR)</option>
+        <option value="Shafeela">Shafeela (HR Manager)</option>
+      </select>
+
+      <label for="action">Action:</label>
+      <select id="action" name="action" required>
+        <option value="">Select Action</option>
+        <option value="checkIn">Check In</option>
+        <option value="checkOut">Check Out</option>
+      </select>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

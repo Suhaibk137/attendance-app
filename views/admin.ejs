@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Attendance Records</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Attendance Records</h1>
+
+  <!-- Date Range Form -->
+  <form action="/admin" method="GET">
+    <label for="startDate">Start Date:</label>
+    <input type="date" id="startDate" name="startDate" value="<%= startDate %>" required>
+
+    <label for="endDate">End Date:</label>
+    <input type="date" id="endDate" name="endDate" value="<%= endDate %>" required>
+
+    <button type="submit">Filter</button>
+  </form>
+
+  <!-- Download Report Button -->
+  <% if (records && records.length > 0) { %>
+    <form action="/download-report" method="GET" style="margin-top: 20px;">
+      <input type="hidden" name="startDate" value="<%= startDate %>">
+      <input type="hidden" name="endDate" value="<%= endDate %>">
+      <button type="submit">Download Report</button>
+    </form>
+  <% } %>
+
+  <!-- Attendance Table -->
+  <table border="1" cellpadding="5">
+    <tr>
+      <th>ID</th>
+      <th>Employee Name</th>
+      <th>Date</th>
+      <th>Check In</th>
+      <th>Check Out</th>
+    </tr>
+    <% if (records && records.length > 0) { %>
+      <% records.forEach(function(record) { %>
+        <tr>
+          <td><%= record.id %></td>
+          <td><%= record.employeeName %></td>
+          <td><%= record.date %></td>
+          <td><%= record.checkIn || '-' %></td>
+          <td><%= record.checkOut || '-' %></td>
+        </tr>
+      <% }); %>
+    <% } else { %>
+      <tr>
+        <td colspan="5">No records found for the selected date range.</td>
+      </tr>
+    <% } %>
+  </table>
+</body>
+</html>
